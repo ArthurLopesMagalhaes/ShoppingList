@@ -7,12 +7,18 @@ type Props = {
   iconLeft?: JSX.Element;
   label?: string;
   iconRight?: JSX.Element;
+  leftIconPress?: () => void;
 };
 
-export const Header = ({ iconLeft, label, iconRight }: Props) => {
+export const Header = ({
+  iconLeft,
+  label,
+  iconRight,
+  leftIconPress,
+}: Props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>{iconLeft}</TouchableOpacity>
+      <TouchableOpacity onPress={leftIconPress}>{iconLeft}</TouchableOpacity>
       <Text style={styles.text}>{label}</Text>
       <TouchableOpacity>{iconRight}</TouchableOpacity>
     </View>

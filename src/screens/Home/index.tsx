@@ -10,21 +10,24 @@ import { HomeListItem, HomeListItemProps } from "./components/HomeListItem";
 
 import { ChatTeardropText } from "phosphor-react-native";
 import { homeListMock } from "../../mocks/homeList.mock";
+import { NewListModal } from "../../components/NewListModal";
 
 export const Home = () => {
   const [lists, setLists] = useState<HomeListItemProps[]>(homeListMock);
+  const [modalVisibel, setModalVisible] = useState(false);
 
   return (
     <Background>
-      <Header label="Minhas Listas"/>
+      <Header label="Minhas Listas" />
       {lists.length > 0 ? (
         <FlatList
           style={styles.scrollView}
           data={lists}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <HomeListItem data={item} />}
           alwaysBounceVertical
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}
+          renderItem={({ item }) => <HomeListItem data={item} />}
         />
       ) : (
         <View style={styles.centeredView}>
@@ -37,8 +40,12 @@ export const Home = () => {
       )}
 
       <View style={styles.footer}>
-        <Button />
+        <Button text="Nova Lista" onPress={() => setModalVisible(true)} />
       </View>
+      <NewListModal
+        visible={modalVisibel}
+        onClose={() => setModalVisible(false)}
+      />
     </Background>
   );
 };
