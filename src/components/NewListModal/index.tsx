@@ -3,10 +3,10 @@ import {
   Modal,
   View,
   TextInput,
-  TouchableWithoutFeedback,
-  Alert,
+  Platform,
   TouchableOpacity,
 } from "react-native";
+
 import { Button } from "../Button";
 import { styles } from "./styles";
 
@@ -15,9 +15,16 @@ type Props = {
   onClose: () => void;
 };
 
+const isAndroid = Platform.OS === "android";
+
 export const NewListModal = ({ visible, onClose }: Props) => {
   return (
-    <Modal animationType="slide" transparent visible={visible}>
+    <Modal
+      animationType="slide"
+      transparent
+      visible={visible}
+      onRequestClose={onClose}
+    >
       <TouchableOpacity
         style={styles.overlay}
         activeOpacity={1}

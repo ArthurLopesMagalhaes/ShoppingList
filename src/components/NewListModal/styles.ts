@@ -10,13 +10,13 @@ export const styles = StyleSheet.create({
   },
   modalBody: {
     width: "80%",
-    backgroundColor: theme.colors.heading,
+    backgroundColor: "#fff",
     borderRadius: 14,
     padding: 20,
   },
   input: {
     borderWidth: 2,
-    borderColor: "red",
+    borderColor: theme.colors.heading,
     marginBottom: 24,
     borderRadius: 8,
     fontSize: 15,
