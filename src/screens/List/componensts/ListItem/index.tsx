@@ -1,9 +1,13 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { useState } from "react";
 import { styles } from "./styles";
-import { CheckCircle, Checks, Check } from "phosphor-react-native";
+import {  Check } from "phosphor-react-native";
 
-export const ListItem = () => {
+type ListItemProps = {
+  name: string;
+};
+
+export const ListItem = ({ name }: ListItemProps) => {
   const [checked, setChecked] = useState(true);
 
   const handlePressCheckbox = () => {
@@ -12,7 +16,7 @@ export const ListItem = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Melancia</Text>
+      <Text style={styles.text}>{name}</Text>
       <TouchableOpacity
         style={checked ? styles.checked : styles.unhecked}
         activeOpacity={0.5}

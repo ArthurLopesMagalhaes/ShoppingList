@@ -3,8 +3,9 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
 export type HomeListItemProps = {
-  id: string;
+  _id: number;
   name: string;
+  products: string[];
 };
 
 type Props = {
@@ -18,7 +19,9 @@ export const HomeListItem = ({ data }: Props) => {
     <TouchableOpacity
       style={styles.container}
       activeOpacity={0.7}
-      onPress={() => navigation.navigate("List")}
+      onPress={() =>
+        navigation.navigate("List", { _id: data._id, name: data.name })
+      }
     >
       <Text style={styles.text}>{data.name}</Text>
     </TouchableOpacity>

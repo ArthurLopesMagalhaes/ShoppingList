@@ -10,12 +10,15 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 20,
-    paddingVertical: 8,
+    paddingVertical: 12,
+    borderWidth: 2,
+    borderColor: theme.colors.primary80,
   },
   text: {
     fontSize: 18,
     color: theme.colors.heading,
     fontFamily: theme.fonts.medium,
+    flex: 1,
   },
   checked: {
     width: 40,
@@ -26,6 +29,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 2,
     borderColor: theme.colors.primary70,
+    marginLeft: 12,
   },
   unhecked: {
     width: 40,
@@ -36,5 +40,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 2,
     borderColor: theme.colors.primary70,
+    marginLeft: 12,
   },
 });
