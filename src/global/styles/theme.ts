@@ -5,6 +5,8 @@ export const theme = {
     primary80: "#0000FF",
     primary70: "#e6e7ea",
 
+    secondary: "#e80000",
+
     tertiary: "#020413",
 
     overlay: "rgba(0,0,0,0.7)",

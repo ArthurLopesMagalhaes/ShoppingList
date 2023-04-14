@@ -2,10 +2,16 @@ import { StyleSheet } from "react-native";
 import { theme } from "../../../../global/styles/theme";
 
 export const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+    marginBottom: 22,
+  },
   container: {
     backgroundColor: theme.colors.tertiary,
     borderRadius: 14,
-    marginBottom: 22,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -13,12 +19,12 @@ export const styles = StyleSheet.create({
     paddingVertical: 12,
     borderWidth: 2,
     borderColor: theme.colors.primary80,
+    flex: 1,
   },
   text: {
     fontSize: 18,
     color: theme.colors.heading,
     fontFamily: theme.fonts.medium,
-    flex: 1,
   },
   checked: {
     width: 40,
@@ -41,5 +47,15 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: theme.colors.primary70,
     marginLeft: 12,
+  },
+  trashContainer: {
+    width: 60,
+    height: 60,
+    backgroundColor: theme.colors.secondary,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: theme.colors.heading,
   },
 });

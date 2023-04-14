@@ -1,5 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { ArrowLeft, Check, Plus } from "phosphor-react-native";
+import { ArrowLeft, Plus } from "phosphor-react-native";
 import { useEffect, useState } from "react";
 import {
   TextInput,
@@ -45,11 +45,10 @@ export const List = () => {
           name: newItem,
         });
       });
-
-      Alert.alert("Nova Lista", "Lista criada com sucesso!");
+      fetchProducts();
     } catch (error) {
       console.log(error);
-      Alert.alert("Nova Lista", "Não foi possível criar uma nova lista!");
+      Alert.alert("Erro", "Não foi possível adicionar um novo produto");
     }
   };
 
@@ -65,6 +64,28 @@ export const List = () => {
       setItems(response);
     } catch (error) {
       Alert.alert("Buscar Listas", "Não foi possível buscar listas!");
+    }
+  };
+
+  const deleteProduct = async (productId: number) => {
+    const realm = await getRealm();
+
+    try {
+      const list = realm.objects("List").filtered(`_id = ${_id}`)[0];
+      let listProducts: ProductProps[] = realm
+        .objects("List")
+        .filtered(`_id = ${_id}`)[0]
+        .products.toJSON();
+
+      const newProducts = listProducts.filter((item) => item._id !== productId);
+      console.log(newProducts);
+
+      realm.write(() => {
+        list.products = newProducts;
+      });
+      fetchProducts();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -84,11 +105,20 @@ export const List = () => {
         data={items}
         keyExtractor={(item) => item._id.toString()}
         contentContainerStyle={{ paddingBottom: 80 }}
-        renderItem={({ item }) => <ListItem name={item.name} />}
+        renderItem={({ item }) => (
+          <ListItem
+            name={item.name}
+            onDeletePress={() => deleteProduct(item._id)}
+          />
+        )}
       />
       <View style={styles.footer}>
         <TextInput style={styles.input} onChangeText={setNewItem} />
-        <TouchableOpacity style={styles.btnContainer} onPress={addNewProduct}>
+        <TouchableOpacity
+          style={styles.btnContainer}
+          onPress={addNewProduct}
+          disabled={newItem.length <= 2}
+        >
           <Plus color={theme.colors.heading} size={32} weight="bold" />
         </TouchableOpacity>
       </View>
