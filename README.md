@@ -1,6 +1,6 @@
 # 🚀 ShoppingList
 
-ShoppingList is a [brief description of the project]. It is developed using React Native, RealmDB, and TypeScript.
+ShoppingList is a is a mobile app developed for a study about RealmDB. It demonstrates how to use RealmDB in a React Native app, and includes basic CRUD operations.
 
 ## 🛠️ Installation
 
@@ -10,7 +10,7 @@ ShoppingList is a [brief description of the project]. It is developed using Reac
 
 ## 🚀 Feature
 
-- Offline Database
+- Offline database with RealmDB
 
 ## 🛡️ Technologies Used
 
@@ -20,8 +20,9 @@ ShoppingList is a [brief description of the project]. It is developed using Reac
 
 ## 📱 Screenshots
 
-[Include screenshots of the app here. It is recommended to include screenshots for each major feature of the app.]
-
-![Screenshot 1](/screenshots/screenshot1.png "Screenshot 1")
-![Screenshot 2](/screenshots/screenshot2.png "Screenshot 2")
-![Screenshot 3](/screenshots/screenshot3.png "Screenshot 3")
+<div style="display:flex;gap:5px">
+  <img src="./uploads/Screenshot_1.png" alt="Screenshot 1" width="300"/>
+  <img src="./uploads/Screenshot_2.png" alt="Screenshot 1" width="300"/>
+  <img src="./uploads/Screenshot_3.png" alt="Screenshot 1" width="300"/>
+  <img src="./uploads/Screenshot_4.png" alt="Screenshot 1" width="300"/>
+</div>
